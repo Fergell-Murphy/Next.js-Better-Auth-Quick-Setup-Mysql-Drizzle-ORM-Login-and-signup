@@ -51,7 +51,7 @@ export default function ResetPasswordPage() {
           <button
             onClick={submitForm}
             disabled={loading || !token || password.length === 0}
-            className="w-full cursor-pointer rounded-full bg-zinc-900 px-4 py-2 font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50"
+            className="w-full cursor-pointer rounded-full bg-blue-500 px-4 py-2 font-medium text-white transition-all hover:bg-blue-400 hover:scale-95 disabled:opacity-50"
           >
             {loading ? "Resetting..." : "Reset password"}
           </button>

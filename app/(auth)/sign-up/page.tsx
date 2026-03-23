@@ -39,8 +39,8 @@ export default function SignUpPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50">
-      <div className="w-full max-w-md rounded-4xl border border-zinc-200 bg-white p-8 shadow-sm">
-        <h1 className="mb-6 text-2xl font-semibold text-zinc-900">
+      <div className="w-full max-w-md rounded-4xl border border-zinc-200 bg-white p-8 shadow-2xl">
+        <h1 className="mb-6 text-xl font-semibold text-zinc-900">
           Create an account
         </h1>
 
@@ -112,7 +112,7 @@ export default function SignUpPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full cursor-pointer rounded-full bg-zinc-900 px-4 py-2 font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50"
+            className="w-full cursor-pointer rounded-full bg-blue-500 hover:scale-95 px-4 py-2 font-medium text-white hover:bg-blue-400 transition-all disabled:opacity-50"
           >
             {isLoading ? "Creating account..." : "Sign up"}
           </button>
@@ -122,7 +122,7 @@ export default function SignUpPage() {
           Already have an account?{" "}
           <Link
             href="/login"
-            className="font-medium text-zinc-900 hover:underline"
+            className="font-medium text-blue-500 hover:underline cursor-pointer"
           >
             Sign in
           </Link>

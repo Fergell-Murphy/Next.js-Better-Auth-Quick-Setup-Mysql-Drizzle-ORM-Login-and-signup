@@ -37,8 +37,8 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50">
-      <div className="w-full max-w-md rounded-4xl border border-zinc-200 bg-white p-8 shadow-sm">
-        <h1 className="mb-6 text-2xl font-semibold text-zinc-900">Sign in</h1>
+      <div className="w-full max-w-md rounded-4xl border border-zinc-200 bg-white p-8 shadow-2xl">
+        <h1 className="mb-6 text-xl font-semibold text-zinc-900">Sign in</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (
@@ -67,12 +67,21 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="mb-1 block text-sm font-medium text-zinc-700"
-            >
-              Password
-            </label>
+            <span className="flex justify-between">
+              <label
+                htmlFor="password"
+                className="mb-1 block text-sm font-medium text-zinc-700"
+              >
+                Password
+              </label>
+              <Link
+                href="/forgot-password"
+                className="text-sm hover:underline text-blue-500 cursor-pointer"
+              >
+                Forgot password?
+              </Link>
+            </span>
+
             <input
               id="password"
               type="password"
@@ -87,20 +96,17 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full cursor-pointer rounded-full bg-zinc-900 px-4 py-2 font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50"
+            className="w-full cursor-pointer rounded-full bg-blue-500 px-4 py-2 font-medium text-white hover:bg-blue-400 hover:scale-95 transition-all disabled:opacity-50"
           >
             {isLoading ? "Signing in..." : "Sign in"}
           </button>
         </form>
-        <Link href="/forgot-password" className="text-sm hover:underline">
-          Forgot password?
-        </Link>
 
         <p className="mt-4 text-center text-sm text-zinc-600">
           Don&apos;t have an account?{" "}
           <Link
             href="/sign-up"
-            className="font-medium text-zinc-900 hover:underline"
+            className="font-medium text-blue-500 hover:underline cursor-pointer"
           >
             Sign up
           </Link>
