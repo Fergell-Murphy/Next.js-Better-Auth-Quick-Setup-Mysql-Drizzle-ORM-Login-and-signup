@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { authClient } from "@/auth-client";
 import { useRouter } from "next/navigation";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { BsEnvelopeAtFill } from "react-icons/bs";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -37,8 +39,11 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50">
-      <div className="w-full max-w-md rounded-4xl border border-zinc-200 bg-white p-8 shadow-2xl">
-        <h1 className="mb-6 text-xl font-semibold text-zinc-900">Sign in</h1>
+      <div className="w-full max-w-md rounded-4xl border border-zinc-200 bg-white p-10 shadow-2xl">
+        <h1 className=" text-xl font-semibold text-zinc-900">Welcome Back</h1>
+        <p className="mb-6 text-sm text-zinc-500">
+          Enter your credentials to access your account.
+        </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (
@@ -50,8 +55,9 @@ export default function LoginPage() {
           <div>
             <label
               htmlFor="email"
-              className="mb-1 block text-sm font-medium text-zinc-700"
+              className="mb-1 flex items-center gap-2 text-sm font-medium text-zinc-700"
             >
+              <BsEnvelopeAtFill className="text-blue-500" />
               Email
             </label>
             <input
@@ -61,8 +67,8 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
               autoComplete="email"
-              className="w-full rounded-full border border-zinc-300 px-3 py-2 text-zinc-900 placeholder-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
-              placeholder="you@example.com"
+              className="placeholder:text-xs w-full rounded-full border border-zinc-300 px-3 py-2 text-zinc-900 placeholder-zinc-400 focus:outline-none"
+              placeholder="you@company.com"
             />
           </div>
 
@@ -70,8 +76,9 @@ export default function LoginPage() {
             <span className="flex justify-between">
               <label
                 htmlFor="password"
-                className="mb-1 block text-sm font-medium text-zinc-700"
+                className="mb-1  flex gap-2 items-center text-sm font-medium text-zinc-700"
               >
+                <RiLockPasswordFill className="text-blue-500" />
                 Password
               </label>
               <Link
@@ -88,8 +95,9 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Enter your password"
               autoComplete="current-password"
-              className="w-full rounded-full border border-zinc-300 px-3 py-2 text-zinc-900 placeholder-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+              className="placeholder:text-xs w-full rounded-full border border-zinc-300 px-3 py-2 text-zinc-900 placeholder-zinc-400 focus:outline-none"
             />
           </div>
 
@@ -102,7 +110,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-zinc-600">
+        <p className="mt-8 text-center text-sm text-zinc-600">
           Don&apos;t have an account?{" "}
           <Link
             href="/sign-up"
